@@ -1,8 +1,6 @@
 import 'bootstrap'
-import 'bootstrap/js/dist/dropdown'
-
-import '../styles/styles.css'
 import '../styles/bootstrap/_custom.scss'
+import '../styles/styles.css'
 
 import 'lazysizes'
 import MobileMenu from './modules/MobileMenu'

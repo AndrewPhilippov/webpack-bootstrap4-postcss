@@ -14,6 +14,11 @@ const postCSSPlugins = [
     require('autoprefixer')
 ]
 
+const bootstrapCSSPlugins = [
+    require('precss'),
+    require('autoprefixer')
+]
+
 class RunAfterCompile {
     apply (compiler) {
         compiler.hooks.done.tap('Copy images', function () {
@@ -29,23 +34,15 @@ let cssConfig = {
 
 let bootstrapCSSConfig = {
     test: /\.(scss)$/,
-    use: [{
-        loader: 'style-loader', // inject CSS to page
-    }, {
-        loader: 'css-loader', // translates CSS into CommonJS modules
-    }, {
-        loader: 'postcss-loader', // Run post css actions
-        options: {
-            plugins: function () { // post css plugins, can be exported to postcss.config.js
-                return [
-                    require('precss'),
-                    require('autoprefixer')
-                ];
-            }
-        }
-    }, {
-        loader: 'sass-loader' // compiles Sass to CSS
-    }]
+    use: [
+        {
+            loader: 'css-loader', // translates CSS into CommonJS modules
+        }, {
+            loader: 'postcss-loader', // Run post css actions
+            options: {plugins: bootstrapCSSPlugins}
+        }, {
+            loader: 'sass-loader' // compiles Sass to CSS
+        }],
 }
 
 let pages = fse.readdirSync('./app').filter(function (file) {
@@ -69,6 +66,7 @@ let config = {
 }
 
 if (currentTask == 'dev') {
+    bootstrapCSSConfig.use.unshift({loader: 'style-loader'})
     cssConfig.use.unshift('style-loader')
     config.output = {
         filename: 'bundled.js',
@@ -98,8 +96,10 @@ if (currentTask == 'build') {
         }
     })
 
-    cssConfig.use.unshift(MiniCssExtractPlugin.loader)
     bootstrapCSSConfig.use.unshift(MiniCssExtractPlugin.loader)
+    bootstrapCSSPlugins.push(require('cssnano'))
+
+    cssConfig.use.unshift(MiniCssExtractPlugin.loader)
     postCSSPlugins.push(require('cssnano'))
     config.output = {
         filename: '[name].[chunkhash].js',
