@@ -55,7 +55,10 @@ let pages = fse.readdirSync('./app').filter(function (file) {
 })
 
 let config = {
-    entry: './app/assets/scripts/App.js',
+    entry: {
+        bootstrap: './app/assets/scripts/Bootstrap.js',
+        main: './app/assets/scripts/App.js'
+    },
     plugins: pages,
     module: {
         rules: [
@@ -67,7 +70,7 @@ let config = {
 
 if (currentTask == 'dev') {
     bootstrapCSSConfig.use.unshift({loader: 'style-loader'})
-    cssConfig.use.unshift('style-loader')
+    cssConfig.use.unshift('css-loader')
     config.output = {
         filename: 'bundled.js',
         path: path.resolve(__dirname, 'app')

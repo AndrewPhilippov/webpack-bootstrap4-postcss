@@ -1,3 +1,4 @@
+/*
 .row {
 
   @mixin clearfix;
@@ -95,8 +96,8 @@
     }
 
   }
-  
-  /* Begin Equal Height Rules */
+
+  !* Begin Equal Height Rules *!
   &--equal-height-at-medium {
     @mixin atMedium {
       display: flex;
@@ -121,4 +122,4 @@
 
   }
 
-}
+}*/

@@ -1,3 +1,21 @@
+.header {
+
+    &__nav {
+        height: $nav-height;
+    }
+    &__logo {
+        height: 26px;
+        width: 132px;
+    }
+    &__nav-list {
+        flex-direction: row;
+        & .nav-item:not(:last-of-type) {
+            margin-right: 20px;
+        }
+    }
+}
+
+/*
 .site-header {
   position: fixed;
   top: 0;
@@ -8,11 +26,11 @@
   z-index: 50;
   -webkit-transition: background-color .25s ease-in-out;
   transition: background-color .25s ease-in-out;
-  /*padding: 10px 0;
+  !*padding: 10px 0;
   position: absolute;
   width: 100%;
   z-index: 2;
-  transition: background-color .3s ease-out;*/
+  transition: background-color .3s ease-out;*!
 
   &--is-expanded {
   }
@@ -140,3 +158,4 @@
     }
   }
 }
+*/
