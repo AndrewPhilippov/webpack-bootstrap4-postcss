@@ -14,10 +14,16 @@ const postCSSPlugins = [
     require('autoprefixer')
 ]
 
+/*
 const bootstrapCSSPlugins = [
-    require('precss'),
+    require('postcss-import'),
+    require('postcss-mixins'),
+    require('postcss-simple-vars'),
+    require('postcss-nested'),
+    require('postcss-hexrgba'),
     require('autoprefixer')
 ]
+*/
 
 class RunAfterCompile {
     apply (compiler) {
@@ -32,21 +38,10 @@ let cssConfig = {
     use: ['css-loader?url=false', {loader: 'postcss-loader', options: {plugins: postCSSPlugins}}]
 }
 
-let bootstrapCSSConfig = {
+/*let bootstrapCSSConfig = {
     test: /\.(scss)$/,
-    use: [
-        {
-            loader: 'style-loader'
-        },
-        {
-            loader: 'css-loader', // translates CSS into CommonJS modules
-        }, {
-            loader: 'postcss-loader', // Run post css actions
-            options: {plugins: bootstrapCSSPlugins}
-        }, {
-            loader: 'sass-loader' // compiles Sass to CSS
-        }],
-}
+    use: ['css-loader?url=false', {loader: 'postcss-loader', options: {plugins: postCSSPlugins}}]
+}*/
 
 let pages = fse.readdirSync('./app').filter(function (file) {
     return file.endsWith('.html')
@@ -66,7 +61,7 @@ let config = {
     module: {
         rules: [
             cssConfig,
-            bootstrapCSSConfig,
+            /*bootstrapCSSConfig,*/
         ]
     }
 }
@@ -101,8 +96,10 @@ if (currentTask == 'build') {
         }
     })
 
-    bootstrapCSSConfig.use.unshift(MiniCssExtractPlugin.loader)
+/*
+    bootstrapCSSConfig.use.push(MiniCssExtractPlugin.loader)
     bootstrapCSSPlugins.push(require('cssnano'))
+*/
 
     cssConfig.use.unshift(MiniCssExtractPlugin.loader)
     postCSSPlugins.push(require('cssnano'))

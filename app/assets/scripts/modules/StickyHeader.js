@@ -3,7 +3,7 @@ import debounce from 'lodash/debounce'
 
 class StickyHeader {
   constructor() {
-    this.siteHeader = document.querySelector(".site-header")
+    this.siteHeader = document.querySelector(".header__nav")
     this.pageSections = document.querySelectorAll(".page-section")
     this.browserHeight = window.innerHeight
     this.previousScrollY = window.scrollY
@@ -20,13 +20,13 @@ class StickyHeader {
   runOnScroll() {
     this.determineScrollDirection()
 
-    if (window.scrollY > 60) {
-      this.siteHeader.classList.add("site-header--dark")
+    if (window.scrollY > 0) { // if you need header transformation later, just change '0' to the 'y' height you need
+      this.siteHeader.classList.add("header__nav--dark")
     } else {
-      this.siteHeader.classList.remove("site-header--dark")
+      this.siteHeader.classList.remove("header__nav--dark")
     }
 
-    this.pageSections.forEach(el => this.calcSection(el))
+    // this.pageSections.forEach(el => this.calcSection(el)) // todo uncomment for menu highlighting on scroll to certain page-section
   }
 
   determineScrollDirection() {
@@ -38,7 +38,7 @@ class StickyHeader {
     this.previousScrollY = window.scrollY
   }
 
-  calcSection(el) {
+/*  calcSection(el) { // todo if you need highlight menu section on scroll
     if (window.scrollY + this.browserHeight > el.offsetTop && window.scrollY < el.offsetTop + el.offsetHeight) {
       let scrollPercent = el.getBoundingClientRect().top / this.browserHeight * 100
       if (scrollPercent < 18 && scrollPercent > -0.1 && this.scrollDirection == 'down' || scrollPercent < 33 && this.scrollDirection == 'up') {
@@ -47,7 +47,7 @@ class StickyHeader {
         document.querySelector(matchingLink).classList.add("is-current-link")
       }
     }
-  }
+  }*/
 }
 
 export default StickyHeader

@@ -1,14 +1,29 @@
 .header {
+    padding-top: $nav-height;
 
     .nav-wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;
         height: $nav-height;
+        transition: all .25s;
     }
 
     &__nav {
-        transition: background-color .25s ease-in-out;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        transition: height .25s ease-in-out, background-color 0s;
+
+        &--dark {
+            background-color: #fff;
+            box-shadow: $shadow-main;
+
+            .nav-wrapper {
+                height: 50px;
+            }
+        }
 
         &:hover {
             background-color: $color-light-grey;
@@ -22,7 +37,7 @@
             .nav__hamburger {
                 display: flex;
                 width: 20px;
-                height: 12px;
+                height: 15px;
                 position: relative;
                 flex-direction: column;
                 justify-content: space-between;
@@ -32,6 +47,25 @@
                     height: 2px;
                     width: 100%;
                     background-color: $black;
+                    transition: .3s;
+                }
+
+                &--close-x {
+                    & .nav__hamburger--stick:nth-of-type(1) {
+                        transform: translateY(6.5px) rotate(-45deg);
+                        transition-delay: .1s;
+                    }
+
+                    & .nav__hamburger--stick:nth-of-type(2) {
+                        transform: translateX(-50px);
+                        opacity: 0;
+                    }
+
+                    & .nav__hamburger--stick:nth-of-type(3) {
+                        transform: translateY(-6.5px) rotate(45deg);
+                        transition-delay: .1s;
+                    }
+
                 }
 
             }
@@ -42,12 +76,12 @@
                 margin: auto auto auto 30px;
             }
         }
+
         .nav__menu-list {
             margin: 0 auto;
             display: flex;
             list-style: none;
             padding: 0;
-            margin: 0;
 
             & .nav__menu-item {
                 & a {
@@ -61,10 +95,13 @@
             }
 
             & .nav__menu-item:not(:last-of-type) {
-                margin-right: 20px;
+                margin-right: 40px;
             }
         }
+
         .nav__login {
+            cursor: pointer;
+
             &--user img {
                 width: 20px;
                 height: 20px;
