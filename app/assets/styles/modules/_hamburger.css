@@ -1,16 +1,1 @@
-.hamburger {
-    &__slider {
-        display: flex;
-        width: 20px;
-        height: 12px;
-        position: relative;
-        flex-direction: column;
-        justify-content: space-between;
-        cursor: pointer;
-    }
-    &__slider--stick {
-        height: 2px;
-        width: 100%;
-        background-color: $black;
-    }
-}
+

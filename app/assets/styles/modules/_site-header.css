@@ -1,16 +1,74 @@
 .header {
 
-    &__nav {
+    .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         height: $nav-height;
     }
-    &__logo {
-        height: 26px;
-        width: 132px;
-    }
-    &__nav-list {
-        flex-direction: row;
-        & .nav-item:not(:last-of-type) {
-            margin-right: 20px;
+
+    &__nav {
+        transition: background-color .25s ease-in-out;
+
+        &:hover {
+            background-color: $color-light-grey;
+        }
+
+        & .nav__logo-box {
+            display: flex;
+            height: $nav-height;
+            align-items: center;
+
+            .nav__hamburger {
+                display: flex;
+                width: 20px;
+                height: 12px;
+                position: relative;
+                flex-direction: column;
+                justify-content: space-between;
+                cursor: pointer;
+
+                &--stick {
+                    height: 2px;
+                    width: 100%;
+                    background-color: $black;
+                }
+
+            }
+
+            .nav__logo {
+                height: 26px;
+                width: 132px;
+                margin: auto auto auto 30px;
+            }
+        }
+        .nav__menu-list {
+            margin: 0 auto;
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            & .nav__menu-item {
+                & a {
+                    color: $black;
+                }
+
+                &:hover a {
+                    text-decoration: none;
+                    color: $color-primary;
+                }
+            }
+
+            & .nav__menu-item:not(:last-of-type) {
+                margin-right: 20px;
+            }
+        }
+        .nav__login {
+            &--user img {
+                width: 20px;
+                height: 20px;
+            }
         }
     }
 }

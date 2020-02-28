@@ -1,3 +1,10 @@
+.large-hero {
+    overflow: hidden;
+
+    & img {
+        border-radius: $border-radius--xl;
+    }
+}
 /*
 .large-hero {
   position: relative;

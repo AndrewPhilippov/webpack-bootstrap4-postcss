@@ -1,5 +1,3 @@
-import 'bootstrap'
-import '../styles/bootstrap/_custom.scss'
 import '../styles/styles.css'
 
 import 'lazysizes'

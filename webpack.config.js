@@ -28,13 +28,16 @@ class RunAfterCompile {
 }
 
 let cssConfig = {
-    test: /\.(css)$/i,
+    test: /\.css$/i,
     use: ['css-loader?url=false', {loader: 'postcss-loader', options: {plugins: postCSSPlugins}}]
 }
 
 let bootstrapCSSConfig = {
     test: /\.(scss)$/,
     use: [
+        {
+            loader: 'style-loader'
+        },
         {
             loader: 'css-loader', // translates CSS into CommonJS modules
         }, {
@@ -69,10 +72,9 @@ let config = {
 }
 
 if (currentTask == 'dev') {
-    bootstrapCSSConfig.use.unshift({loader: 'style-loader'})
-    cssConfig.use.unshift('css-loader')
+    cssConfig.use.unshift('style-loader')
     config.output = {
-        filename: 'bundled.js',
+        filename: '[name]-bundled.js',
         path: path.resolve(__dirname, 'app')
     }
     config.devServer = {
@@ -115,7 +117,7 @@ if (currentTask == 'build') {
     }
     config.plugins.push(
         new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({filename: 'styles.[chunkhash].css'}),
+        new MiniCssExtractPlugin({filename: '[name]-styles.[chunkhash].css'}),
         new RunAfterCompile()
     )
 }
