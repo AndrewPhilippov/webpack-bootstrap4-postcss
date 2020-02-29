@@ -2,7 +2,7 @@
     padding: 20px 0;
 
     &--grey {
-        background-color: $color-light-grey;
+        background-color: $color-grey--light;
     }
 }
 
