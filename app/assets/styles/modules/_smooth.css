@@ -1,14 +1,89 @@
-.dropdown {
+ul.dropdown {
     opacity: 0;
     position: absolute;
     overflow: hidden;
-    padding: 20px;
+    padding: 20px 30px;
     top: -20px;
     border-radius: 2px;
-    transition: all 0.5s;
+    transition: all 0.2s;
     transform: translateY(100px);
     will-change: opacity;
     display: none;
+    min-width: 100px;
+    max-width: 300px;
+    list-style: none;
+
+    &.brands-list {
+        padding: 15px;
+        margin: 0 auto;
+        list-style: none;
+        max-width: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            width: 48%;
+            transition: all .2s;
+            &:hover {
+                background-color: $color-grey--light;
+            }
+        }
+        & li a.brands-list__item {
+            margin: 5px 7px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            position: relative;
+            transition: background-color .2s ease-in-out;
+            .brands-list__item-block {
+                min-width: 60px;
+                display: flex;
+                flex-direction: column;
+                &--img {
+                    width: 100%;
+                    max-width: 55px;
+                    margin-right: 5px;
+                    max-height: 35px;
+                    display: block;
+
+                    & img {
+                        width: auto;
+                        height: auto;
+                        max-height: 40px;
+                        margin: 0 auto;
+                    }
+                }
+
+                &--name {
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    align-items: flex-start;
+                    justify-content: center;
+                    white-space: normal;
+
+                    &:nth-child(1) {
+                        color: #292527;
+                        font-family: Gotham-Bold, Arial, sans-serif;
+                        font-size: .833rem;
+                        font-weight: bold;
+                    }
+                    &:nth-child(2) {
+                        font-family: Gotham-Bold, Arial, sans-serif;
+                        font-size: .694rem;
+                        color: #77777a;
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .brands-list__item {
+        &-popup {
+            opacity: 0;
+        }
+
+    }
 }
 
 .trigger-enter .dropdown {
@@ -25,22 +100,23 @@
     position: absolute;
     background: #fff;
     border-radius: 4px;
-    box-shadow: 0 50px 100px rgba(50, 50, 93, .1), 0 15px 35px rgba(50, 50, 93, .15), 0 5px 15px rgba(0, 0, 0, .1);
+    box-shadow: $shadow-main;
     transition: all 0.3s, opacity 0.1s, transform 0.2s;
     transform-origin: 50% 0;
     display: flex;
     justify-content: center;
     opacity: 0;
+
     &.open {
         opacity: 1;
     }
 
-    span.arrow {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        display: block;
-        background: white;
-        transform: translateY(-50%) rotate(45deg);
-    }
+    /* span.arrow {
+         position: absolute;
+         width: 20px;
+         height: 20px;
+         display: block;
+         background: white;
+         transform: translateY(-50%) rotate(45deg);
+     }*/
 }

@@ -76,10 +76,13 @@
             }
 
             .nav__logo {
-                height: 26px;
-                width: 132px;
+                height: 100%;
+                width: 150px;
+                display: flex;
+                align-items: center;
                 margin: auto auto auto 30px;
                 @mixin atLarge {
+                    width: 200px;
                     margin: auto;
                 }
             }
@@ -97,12 +100,27 @@
             }
 
 
-
             & li.nav__menu-item {
-                padding: 0 20px;
                 height: 100%;
                 display: flex;
+                z-index: 1;
+                position: relative;
+                &--smooth:after {
+                    content: '';
+                    position: absolute;
+                    bottom: -20px;
+                    left: 50%;
+                    width: 20px;
+                    height: 20px;
+                    display: block;
+                    background: white;
+                    transform: translate(-50%, -50% ) rotate(45deg);
+                    opacity: 0;
+                    transition: .25s;
+                }
+
                 & a {
+                    padding: 20px;
                     color: $black;
                     align-self: center;
                     transition: all .2s;
@@ -111,6 +129,10 @@
                 &:hover a {
                     text-decoration: none;
                     color: $color-primary;
+                }
+
+                &--smooth:hover:after {
+                    opacity: 1;
                 }
             }
         }

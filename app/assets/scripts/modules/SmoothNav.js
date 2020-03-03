@@ -1,6 +1,6 @@
 class SmoothNav {
     constructor () {
-        this.triggers = document.querySelectorAll('.list--smooth > li');
+        this.triggers = document.querySelectorAll('.list--smooth > li.nav__menu-item--smooth');
         this.background = document.querySelector('.dropdownBackground');
         this.nav = document.querySelector('.header__nav');
         this.events()
@@ -31,7 +31,6 @@ class SmoothNav {
             self.background.style.setProperty('right', `${coords.right}px`);
             self.background.style.setProperty('left', `${coords.left}px`);
             self.background.style.setProperty('top', `${coords.top}px`);
-            // self.background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`);
         }
         function handleLeave () {
             this.classList.remove('trigger-enter', 'trigger-enter-active');
