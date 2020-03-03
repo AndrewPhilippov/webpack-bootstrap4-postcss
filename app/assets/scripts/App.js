@@ -10,6 +10,7 @@ new StickyHeader()
 // new RevealOnScroll(document.querySelectorAll(".feature-item"), 75)
 // new RevealOnScroll(document.querySelectorAll(".testimonial"), 60)
 new MobileMenu()
+new SmoothNav()
 let modal
 
 console.log('Привет')

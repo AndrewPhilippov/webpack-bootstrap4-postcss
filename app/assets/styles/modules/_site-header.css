@@ -90,15 +90,21 @@
             display: none;
             list-style: none;
             padding: 0;
+            height: 100%;
             @mixin atLarge {
                 display: flex;
+                align-items: center;
             }
 
 
 
-            & .nav__menu-item {
+            & li.nav__menu-item {
+                padding: 0 20px;
+                height: 100%;
+                display: flex;
                 & a {
                     color: $black;
+                    align-self: center;
                     transition: all .2s;
                 }
 
@@ -106,10 +112,6 @@
                     text-decoration: none;
                     color: $color-primary;
                 }
-            }
-
-            & .nav__menu-item:not(:last-of-type) {
-                margin-right: 40px;
             }
         }
 
