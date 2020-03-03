@@ -2,10 +2,16 @@
     opacity: 0;
     height: 0;
     transition: all .5s;
-
     &--is-visible {
         opacity: 1;
         height: 100%;
         padding: 20px 0;
+        display: block;
+        .nav__menu-list {
+            display: block;
+            @mixin atLarge {
+                display: none;
+            }
+        }
     }
 }
