@@ -4,9 +4,10 @@ ul.dropdown {
     overflow: hidden;
     padding: 20px 30px;
     top: -20px;
+    left: 50%;
     border-radius: 2px;
     transition: all 0.2s;
-    transform: translateY(100px);
+    transform: translate(-50%, 100px);
     will-change: opacity;
     display: none;
     min-width: 100px;
