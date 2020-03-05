@@ -38,6 +38,19 @@ let cssConfig = {
     use: ['css-loader?url=false', {loader: 'postcss-loader', options: {plugins: postCSSPlugins}}]
 }
 
+let fontsConfig = {
+    test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+    use: [
+        {
+            loader: 'file-loader',
+            options: {
+                name: '[name].[ext]',
+                outputPath: 'fonts/'
+            }
+        }
+    ]
+}
+
 /*let bootstrapCSSConfig = {
     test: /\.(scss)$/,
     use: ['css-loader?url=false', {loader: 'postcss-loader', options: {plugins: postCSSPlugins}}]
@@ -61,6 +74,7 @@ let config = {
     module: {
         rules: [
             cssConfig,
+            fontsConfig
             /*bootstrapCSSConfig,*/
         ]
     }

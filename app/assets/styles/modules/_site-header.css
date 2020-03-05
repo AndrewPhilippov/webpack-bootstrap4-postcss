@@ -104,7 +104,7 @@
                 height: 100%;
                 display: flex;
                 z-index: 1;
-                position: relative;
+                position: relative;/*
                 &--smooth:after {
                     content: '';
                     position: absolute;
@@ -117,7 +117,7 @@
                     transform: translate(-50%, -50% ) rotate(45deg);
                     opacity: 0;
                     transition: .25s;
-                }
+                }*/
 
                 & a {
                     padding: 20px;
@@ -131,9 +131,9 @@
                     color: $color-primary;
                 }
 
-                &--smooth:hover:after {
+                /*&--smooth:hover:after {
                     opacity: 1;
-                }
+                }*/
             }
         }
 

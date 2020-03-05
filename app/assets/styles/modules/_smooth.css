@@ -1,8 +1,8 @@
-ul.dropdown {
+.dropdown {
     opacity: 0;
     position: absolute;
     overflow: hidden;
-    padding: 20px 30px;
+    padding: 0;
     top: -20px;
     left: 50%;
     border-radius: 2px;
@@ -12,33 +12,66 @@ ul.dropdown {
     display: none;
     min-width: 100px;
     max-width: 300px;
-    list-style: none;
 
-    &.brands-list {
-        padding: 15px;
-        margin: 0 auto;
-        list-style: none;
-        max-width: 300px;
+
+    & ul.dropdown--brands-list,
+    & ul.dropdown--service {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        list-style: none;
+        overflow: hidden auto;
+        margin: 0 auto;
+        padding: 10px;
+
         li {
             width: 48%;
             transition: all .2s;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
             &:hover {
                 background-color: $color-grey--light;
             }
         }
+    }
+    & ul.dropdown--service {
+        align-content: center;
+        min-width: 250px;
+
+        & li.nav__menu-item {
+            min-height: 70px;
+            & a.services-list__item {
+                color: #292527;
+                font-family: Gotham-Bold, Arial, sans-serif;
+                font-size: .7rem;
+                font-weight: lighter;
+                margin: 0;
+                padding: 0;
+            }
+            &:hover {
+                background-color: $color-grey--light;
+            }
+        }
+    }
+
+    & ul.dropdown--brands-list {
+        max-width: 300px;
+
         & li a.brands-list__item {
-            margin: 5px 7px;
             padding: 0;
             display: flex;
             align-items: center;
             position: relative;
             transition: background-color .2s ease-in-out;
+
             .brands-list__item-block {
                 min-width: 60px;
                 display: flex;
                 flex-direction: column;
+
                 &--img {
                     width: 100%;
                     max-width: 55px;
@@ -64,13 +97,14 @@ ul.dropdown {
 
                     &:nth-child(1) {
                         color: #292527;
-                        font-family: Gotham-Bold, Arial, sans-serif;
-                        font-size: .833rem;
+                        font-family: sans-serif;
+                        font-size: .85rem;
                         font-weight: bold;
                     }
+
                     &:nth-child(2) {
                         font-family: Gotham-Bold, Arial, sans-serif;
-                        font-size: .694rem;
+                        font-size: .7rem;
                         color: #77777a;
                         margin-bottom: 0;
                     }
@@ -112,12 +146,12 @@ ul.dropdown {
         opacity: 1;
     }
 
-    /* span.arrow {
-         position: absolute;
-         width: 20px;
-         height: 20px;
-         display: block;
-         background: white;
-         transform: translateY(-50%) rotate(45deg);
-     }*/
+    span.arrow {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        display: block;
+        background: white;
+        transform: translateY(-50%) rotate(45deg);
+    }
 }
