@@ -1,7 +1,7 @@
 .header {
     padding-top: $nav-height;
-
     .nav-wrapper {
+        z-index: 10000;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -11,6 +11,7 @@
     }
 
     &__nav {
+        z-index: 10000;
         position: fixed;
         top: 0;
         left: 0;
@@ -28,6 +29,9 @@
         }
 
         &:hover {
+            background-color: $color-grey--light;
+        }
+        &:hover .mobile__menu-content {
             background-color: $color-grey--light;
         }
 

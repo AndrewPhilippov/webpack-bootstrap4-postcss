@@ -5,12 +5,15 @@ import MobileMenu from './modules/MobileMenu'
 import RevealOnScroll from './modules/RevealOnScroll'
 import StickyHeader from './modules/StickyHeader'
 import SmoothNav from './modules/SmoothNav'
+import {headSwiper} from './modules/Swiper'
+console.log(headSwiper)
 
 new StickyHeader()
 // new RevealOnScroll(document.querySelectorAll(".feature-item"), 75)
 // new RevealOnScroll(document.querySelectorAll(".testimonial"), 60)
 new MobileMenu()
 new SmoothNav()
+
 
 let modal
 

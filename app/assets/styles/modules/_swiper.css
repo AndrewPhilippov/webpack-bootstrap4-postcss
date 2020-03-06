@@ -1,0 +1,4 @@
+@import 'swiper/css/swiper.min.css';
+.swiper-pagination-bullet{
+    background-color: #fff;
+}

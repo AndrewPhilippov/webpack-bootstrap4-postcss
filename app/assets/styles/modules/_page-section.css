@@ -1,6 +1,5 @@
 .page-section {
     padding: 20px 0;
-
     &--grey {
         background-color: $color-grey--light;
     }

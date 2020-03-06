@@ -14,24 +14,19 @@ const postCSSPlugins = [
     require('autoprefixer')
 ]
 
-/*
-const bootstrapCSSPlugins = [
-    require('postcss-import'),
-    require('postcss-mixins'),
-    require('postcss-simple-vars'),
-    require('postcss-nested'),
-    require('postcss-hexrgba'),
-    require('autoprefixer')
-]
-*/
-
 class RunAfterCompile {
     apply (compiler) {
         compiler.hooks.done.tap('Copy images', function () {
             fse.copySync('./app/assets/images', './docs/assets/images')
         })
+        compiler.hooks.done.tap('Copy fonts', function () {
+            fse.copySync('./app/assets/styles/fonts', './docs/styles/fonts')
+        })
     }
 }
+let fontsPlugins = [
+    new RunAfterCompile()
+]
 
 let cssConfig = {
     test: /\.css$/i,
@@ -44,17 +39,12 @@ let fontsConfig = {
         {
             loader: 'file-loader',
             options: {
+                plugins: fontsPlugins,
                 name: '[name].[ext]',
-                outputPath: 'fonts/'
             }
         }
     ]
 }
-
-/*let bootstrapCSSConfig = {
-    test: /\.(scss)$/,
-    use: ['css-loader?url=false', {loader: 'postcss-loader', options: {plugins: postCSSPlugins}}]
-}*/
 
 let pages = fse.readdirSync('./app').filter(function (file) {
     return file.endsWith('.html')
@@ -67,17 +57,17 @@ let pages = fse.readdirSync('./app').filter(function (file) {
 
 let config = {
     entry: {
+        fonts: './app/assets/scripts/Fonts.js',
         bootstrap: './app/assets/scripts/Bootstrap.js',
         main: './app/assets/scripts/App.js'
     },
     plugins: pages,
     module: {
         rules: [
+            fontsConfig,
             cssConfig,
-            fontsConfig
-            /*bootstrapCSSConfig,*/
-        ]
-    }
+        ],
+    },
 }
 
 if (currentTask == 'dev') {
@@ -110,16 +100,11 @@ if (currentTask == 'build') {
         }
     })
 
-/*
-    bootstrapCSSConfig.use.push(MiniCssExtractPlugin.loader)
-    bootstrapCSSPlugins.push(require('cssnano'))
-*/
-
     cssConfig.use.unshift(MiniCssExtractPlugin.loader)
     postCSSPlugins.push(require('cssnano'))
     config.output = {
-        filename: '[name].[chunkhash].js',
-        chunkFilename: '[name].[chunkhash].js',
+        filename: 'scripts/[name].[chunkhash].js',
+        chunkFilename: 'scripts/chunks/[name].[chunkhash].js',
         path: path.resolve(__dirname, 'docs')
     }
     config.mode = 'production'
@@ -128,7 +113,7 @@ if (currentTask == 'build') {
     }
     config.plugins.push(
         new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({filename: '[name]-styles.[chunkhash].css'}),
+        new MiniCssExtractPlugin({filename: 'styles/[name].[chunkhash].css'}),
         new RunAfterCompile()
     )
 }
