@@ -1,4 +1,37 @@
 @import 'swiper/css/swiper.min.css';
 .swiper-pagination-bullet{
     background-color: #fff;
+    opacity: .8;
+    box-shadow: 0 2px 3px #000000;
+    &.swiper-pagination-bullet-active-main {
+        background-color: $color-primary;
+    }
+}
+.swiper-button-prev,
+.swiper-button-next {
+    &:after {
+        color: #fff;
+    }
+}
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-bullets-dynamic{
+    bottom : 100px;
+}
+
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 0 0 $border-radius--xl $border-radius--xl;
+    position: relative;
+    width: 98%;
+    left: 50%;
+    padding: 20px;
+    transform: translateX(-50%);
+    & .slider-title {
+        margin-right: 30px;
+    }
+    & .slider-btn {
+
+    }
 }

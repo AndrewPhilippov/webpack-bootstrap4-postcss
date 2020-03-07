@@ -1,0 +1,13 @@
+.btn {
+    padding: 5px 15px;
+    &__action {
+        color: #fff;
+        background-color: $color-primary;
+        .btn--with-shadow {
+            box-shadow: 0 3px 15px rgba($color-primary, .3);
+        }
+    }
+    &--rounded {
+        border-radius: $border-radius--xl;
+    }
+}
