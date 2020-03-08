@@ -9,9 +9,6 @@
         display: block;
         .nav__menu-list {
             display: block;
-            @mixin atLarge {
-                display: none;
-            }
         }
     }
 }

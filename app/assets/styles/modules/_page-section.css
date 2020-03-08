@@ -1,7 +1,47 @@
 .page-section {
     padding: 20px 0;
     &--grey {
-        background-color: $color-grey--light;
+        border-color: $color-grey--light;
+    }
+}
+
+.triangle {
+    display: block;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    border: 60px solid transparent;
+    &.triangle-top {
+        border-top: 0 solid transparent;
+        border-left-width: 2500px;
+        &--white {
+            border-left-color: #fff;
+        }
+    }
+    &.triangle-top--reverse {
+        border-top: 0 solid transparent;
+        border-right-width: 2400px;
+        top: 0;
+        &--grey {
+            border-right-color: $color-grey--light;
+        }
+        &--white {
+            border-right-color: #fff;
+        }
+    }
+    &.triangle-bottom {
+        bottom: 0;
+        border-bottom: 0 solid transparent;
+        border-left-width: 2500px;
+        &--white {
+            border-left-color: #fff;
+        }
+    }
+    &.triangle-bottom--reverse {
+        bottom: 0;
+        &--white {
+            border-color: red;
+        }
     }
 }
 
