@@ -45,6 +45,11 @@
     }
 }
 
+.title_block {
+    font-weight: bold;
+    font-size: 2rem;
+}
+
 /*
 .page-section {
   padding: 1.2rem 0;

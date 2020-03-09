@@ -1,0 +1,179 @@
+.main_advantages_block {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 auto;
+    flex-direction: column;
+    padding: 50px 0;
+    @mixin atSmall {
+        padding: 100px 0;
+        width: 95%;
+    }
+    @mixin atLarge {
+        width: 80%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & .title_block {
+        flex-basis: 100%;
+        text-align: left;
+        margin-right: 0;
+        margin-bottom: 30px;
+        @mixin atLarge {
+            text-align: right;
+            flex-basis: 30%;
+            margin-right: 30px;
+        }
+    }
+
+    & .advantages_block {
+        display: flex;
+        flex-basis: 100%;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+
+        @mixin atSmall {
+
+        }
+        @mixin atMedium {
+
+        }
+        @mixin atLarge {
+            flex-basis: 70%;
+            text-align: right;
+            margin-right: 30px;
+        }
+
+        & ul {
+            margin: 20px 0 20px 20px;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            text-align: left;
+            @mixin atMedium {
+                margin: 20px 30px;
+            }
+
+            & li {
+                flex-basis: 33%;
+                cursor: pointer;
+                padding-left: 20px;
+                display: flex;
+                justify-self: flex-start;
+
+                & a {
+                    text-decoration: none;
+                    color: $black;
+                }
+
+                &:nth-child(1),
+                &:nth-child(2),
+                &:nth-child(3) {
+                    padding-bottom: 20px;
+                }
+            }
+        }
+
+        &:after,
+        &:before {
+            position: absolute;
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 0 solid transparent;
+        }
+
+        &:after {
+            top: 0;
+            left: 0;
+            border-top-width: 5px;
+            border-left-width: 5px;
+            border-top-color: red;
+            border-left-color: red;
+        }
+
+        &:before {
+            bottom: 0;
+            left: 0;
+            border-bottom-width: 5px;
+            border-left-width: 5px;
+            border-bottom-color: red;
+            border-left-color: red;
+        }
+    }
+
+    &__longread {
+        height: 500px;
+        overflow: hidden;
+        transition: height 1s;
+
+        .main-block-title {
+            font-weight: bold;
+            width: 100%;
+            @mixin atLarge {
+                width: 80%;
+            }
+            @mixin atMedium {
+                width: 90%;
+            }
+        }
+
+        h1 .highlight {
+            color: $color-primary;
+        }
+
+        ul.brands-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+
+            & .brands-list__item {
+                display: flex;
+                width: 150px;
+                align-items: center;
+                padding: 20px;
+
+                &--img {
+                    max-height: 55px;
+                }
+
+                &--name {
+                    margin-right: 15px;
+                }
+            }
+        }
+
+        &--is-expanded {
+            height: 2500px;
+            @mixin atSmall {
+                height: 2000px;
+            }
+            @mixin atMedium {
+                height: 1800px;
+            }
+            @mixin atLarge {
+                height: 1350px;
+            }
+        }
+    }
+}
+
+.main-expand {
+    display: flex;
+    background: linear-gradient(transparent, #fff);
+    height: 70px;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    align-items: center;
+    justify-content: center;
+}

@@ -27,7 +27,7 @@
                 width: 80%;
             }
             @mixin atLarge {
-                width: 60%;
+                width: 70%;
             }
             .main-block-title {
                 font-weight: bold;
@@ -41,9 +41,11 @@
                     margin: 20px 0;
                     flex-wrap: wrap;
                     & .form-group.relative {
-                        margin-right: 20px;
                         margin-bottom: 20px;
                         flex-basis: 20%;
+                        &:not(:last-child) {
+                            margin-right: 20px;
+                        }
                     }
                 }
                 .form-group input {

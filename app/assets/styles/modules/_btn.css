@@ -23,4 +23,10 @@
         outline: none;
         box-shadow: 0 3px 15px 0 rgba(237, 27, 36, .59);
     }
+    &.main-block-btn__expand {
+        padding: 0;
+        color: #404040;
+        line-height: 1.5;
+        text-decoration: underline dotted $color-primary;
+    }
 }

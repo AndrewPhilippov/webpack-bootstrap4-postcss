@@ -1,23 +1,23 @@
 import '../styles/styles.css'
-
 import 'lazysizes'
-import MobileMenu from './modules/MobileMenu'
-import RevealOnScroll from './modules/RevealOnScroll'
-import StickyHeader from './modules/StickyHeader'
-import SmoothNav from './modules/SmoothNav'
-import {headSwiper} from './modules/Swiper'
-console.log(headSwiper)
-
-new StickyHeader()
 // new RevealOnScroll(document.querySelectorAll(".feature-item"), 75)
 // new RevealOnScroll(document.querySelectorAll(".testimonial"), 60)
+
+import RevealOnScroll from './modules/RevealOnScroll'
+import {headSwiper} from './modules/Swiper'
+import MobileMenu from './modules/MobileMenu'
+import StickyHeader from './modules/StickyHeader'
+import SmoothNav from './modules/SmoothNav'
+import ExpandBtn from "./modules/ExpandBtn"
+import YMap from "./modules/YMap";
+
+new StickyHeader()
 new MobileMenu()
 new SmoothNav()
-
+new ExpandBtn()
+new YMap()
 
 let modal
-
-console.log('Привет')
 
 document.querySelectorAll(".open-modal").forEach(el => {
     el.addEventListener("click", e => {
