@@ -17,7 +17,7 @@ const postCSSPlugins = [
 class RunAfterCompile {
     apply (compiler) {
         compiler.hooks.done.tap('Copy images', function () {
-            fse.copySync('./app/assets/images', './docs/img')
+            fse.copySync('./app/img', './docs/img')
         })
         compiler.hooks.done.tap('Copy fonts', function () {
             fse.copySync('./app/assets/styles/fonts', './docs/styles/fonts')
@@ -40,7 +40,7 @@ let fontsConfig = {
             loader: 'file-loader',
             options: {
                 plugins: fontsPlugins,
-                name: '[name].[ext]',
+                name: 'styles/fonts/[name].[ext]',
             }
         }
     ]
