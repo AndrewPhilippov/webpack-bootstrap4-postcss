@@ -1,8 +1,8 @@
 class SmoothNav {
     constructor () {
-        this.triggers = document.querySelectorAll('.list--smooth > li.nav__menu-item--smooth');
-        this.background = document.querySelector('.dropdownBackground');
-        this.nav = document.querySelector('.header__nav');
+        this.triggers = document.querySelectorAll('.list--smooth > li.nav__menu-item--smooth')
+        this.background = document.querySelector('.dropdownBackground')
+        this.nav = document.querySelector('.header__nav')
         this.events()
     }
 
@@ -10,7 +10,6 @@ class SmoothNav {
         const self = this
         this.triggers.forEach(trigger => trigger.addEventListener('mouseenter', handleEnter))
         this.triggers.forEach(trigger => trigger.addEventListener('mouseleave', handleLeave))
-
         function handleEnter () {
             this.classList.add('trigger-enter')
             setTimeout(() => {this.classList.contains('trigger-enter') && this.classList.add('trigger-enter-active')}, 150)

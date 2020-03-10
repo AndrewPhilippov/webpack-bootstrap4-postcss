@@ -5,7 +5,6 @@ class YMap {
 
     init () {
         ymaps.ready(function () {
-            console.log('Helloooo from mapls')
             var myMap = new ymaps.Map('map', {
                     center: [55.767331568976665, 37.5242285],
                     zoom: 15,

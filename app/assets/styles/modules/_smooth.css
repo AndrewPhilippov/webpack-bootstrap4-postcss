@@ -138,11 +138,12 @@
     box-shadow: $shadow-main;
     transition: all 0.3s, opacity 0.1s, transform 0.2s;
     transform-origin: 50% 0;
-    display: flex;
     justify-content: center;
     opacity: 0;
+    display: none;
 
     &.open {
+    display: flex;
         opacity: 1;
     }
 

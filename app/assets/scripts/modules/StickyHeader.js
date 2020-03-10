@@ -1,5 +1,6 @@
 import throttle from 'lodash/throttle'
 import debounce from 'lodash/debounce'
+import SmoothNav from "./SmoothNav";
 
 class StickyHeader {
   constructor() {
