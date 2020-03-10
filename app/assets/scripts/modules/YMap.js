@@ -2,12 +2,14 @@ class YMap {
     constructor () {
         this.init()
     }
-    init() {
+
+    init () {
         ymaps.ready(function () {
             console.log('Helloooo from mapls')
             var myMap = new ymaps.Map('map', {
-                    center: [55.751574, 37.573856],
-                    zoom: 9
+                    center: [55.767331568976665, 37.5242285],
+                    zoom: 15,
+                    controls: ['rulerControl', 'zoomControl']
                 }, {
                     searchControlProvider: 'yandex#search'
                 }),
@@ -18,41 +20,20 @@ class YMap {
                 ),
 
                 myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-                    hintContent: 'Собственный значок метки',
-                    balloonContent: 'Это красивая метка'
+                    hintContent: 'Рольф Центр',
+                    balloonContent: 'РОЛЬФ ЦЕНТР 2-й Магистральный тупик, 5А'
                 }, {
                     // Опции.
                     // Необходимо указать данный тип макета.
                     iconLayout: 'default#image',
                     // Своё изображение иконки метки.
-                    iconImageHref: 'images/myIcon.gif',
+                    iconImageHref: 'img/map-icon.png',
                     // Размеры метки.
-                    iconImageSize: [30, 42],
+                    iconImageSize: [42, 42],
                     // Смещение левого верхнего угла иконки относительно
                     // её "ножки" (точки привязки).
                     iconImageOffset: [-5, -38]
-                }),
-
-                myPlacemarkWithContent = new ymaps.Placemark([55.661574, 37.573856], {
-                    hintContent: 'Собственный значок метки с контентом',
-                    balloonContent: 'А эта — новогодняя',
-                    iconContent: '12'
-                }, {
-                    // Опции.
-                    // Необходимо указать данный тип макета.
-                    iconLayout: 'default#imageWithContent',
-                    // Своё изображение иконки метки.
-                    iconImageHref: 'images/ball.png',
-                    // Размеры метки.
-                    iconImageSize: [48, 48],
-                    // Смещение левого верхнего угла иконки относительно
-                    // её "ножки" (точки привязки).
-                    iconImageOffset: [-24, -24],
-                    // Смещение слоя с содержимым относительно слоя с картинкой.
-                    iconContentOffset: [15, 15],
-                    // Макет содержимого.
-                    iconContentLayout: MyIconContentLayout
-                });
+                })
 
             myMap.geoObjects
                 .add(myPlacemark)
@@ -60,4 +41,5 @@ class YMap {
         });
     }
 }
+
 export default YMap
