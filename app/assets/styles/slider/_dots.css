@@ -1,0 +1,24 @@
+.nav-dots {
+    width: 188px;
+    display: flex;
+    justify-content: space-between;
+    justify-self: center;
+    margin: 30px auto 0 auto;
+
+    &.hidden {
+        opacity: 0;
+    }
+    @mixin atBigSlider {
+        width: 377px;
+    }
+    .dot {
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+        display: block;
+        background-color: rgba(255,255,255, .5);
+        &--solid {
+            background-color: #fff;
+        }
+    }
+}
