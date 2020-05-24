@@ -17,33 +17,17 @@ const postCSSPlugins = [
 class RunAfterCompile {
     apply (compiler) {
         compiler.hooks.done.tap('Copy images', function () {
-            fse.copySync('./app/img', './docs/img')
+            fse.copySync('./app/assets/img', './docs/assets/img')
         })
-        compiler.hooks.done.tap('Copy fonts', function () {
-            fse.copySync('./app/assets/styles/fonts', './docs/styles/fonts')
+        compiler.hooks.done.tap('Copy icons', function () {
+            fse.copySync('./app/assets/img/icons', './docs/assets/img/icons')
         })
     }
 }
-let fontsPlugins = [
-    new RunAfterCompile()
-]
 
 let cssConfig = {
     test: /\.css$/i,
     use: ['css-loader?url=false', {loader: 'postcss-loader', options: {plugins: postCSSPlugins}}]
-}
-
-let fontsConfig = {
-    test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-    use: [
-        {
-            loader: 'file-loader',
-            options: {
-                plugins: fontsPlugins,
-                name: 'styles/fonts/[name].[ext]',
-            }
-        }
-    ]
 }
 
 let pages = fse.readdirSync('./app').filter(function (file) {
@@ -57,14 +41,11 @@ let pages = fse.readdirSync('./app').filter(function (file) {
 
 let config = {
     entry: {
-        fonts: './app/assets/scripts/Fonts.js',
-        bootstrap: './app/assets/scripts/Bootstrap.js',
         main: './app/assets/scripts/App.js'
     },
     plugins: pages,
     module: {
         rules: [
-            fontsConfig,
             cssConfig,
         ],
     },

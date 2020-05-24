@@ -16,6 +16,18 @@
   }
 }
 
+@define-mixin atBigSlider {
+  @media (min-width: 920px) {
+    @mixin-content;
+  }
+}
+
+@define-mixin atMediumSlider {
+  @media (min-width: 682px) {
+    @mixin-content;
+  }
+}
+
 @define-mixin clearfix {
   &::after {
     content: "";
