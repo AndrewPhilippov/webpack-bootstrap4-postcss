@@ -10,7 +10,7 @@
     "bootstrap": "^4.4.1",
     "jquery": "^3.5.0",
     "lazysizes": "^5.1.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "normalize.css": "^8.0.1",
     "popper.js": "^1.16.1",
     "precss": "^4.0.0",
