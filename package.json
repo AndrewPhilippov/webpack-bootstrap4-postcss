@@ -14,7 +14,7 @@
     "normalize.css": "^8.0.1",
     "popper.js": "^1.16.1",
     "precss": "^4.0.0",
-    "swiper": "^5.3.6"
+    "swiper": "^6.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
